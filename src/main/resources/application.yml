@@ -4,9 +4,9 @@ server:
     #证书路径
     key-store: /Users/shensi/Keys/keystore.p12
     #密钥库密码
-    key-store-password: 123456
+    key-store-password: g5373d41f72m52s
     #密钥库类型
-    key-store-type: PKCS12
+    key-store-type: JKS
     #密钥库别名
     key-alias: proxy-server
     client-auth: want
