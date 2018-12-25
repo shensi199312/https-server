@@ -4,7 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -12,10 +15,11 @@ public class Controller {
     @ResponseBody
     public String test(HttpServletRequest httpServletRequest){
         Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
+        List<String> headers = new ArrayList<>();
         while (headerNames.hasMoreElements()){
             String s = headerNames.nextElement();
-            System.out.println(s + ":" + httpServletRequest.getHeader(s));
+            headers.add(s + ":" + httpServletRequest.getHeader(s));
         }
-        return "hello world!";
+        return String.join("\n", headers);
     }
 }
